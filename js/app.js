@@ -1,9 +1,16 @@
-/*
-	JavaScript Lab1
-
-	Derrick Park
-*/
-
+// <!--
+// ======================================================================
+// Project Name    : Lab3 - JS
+// Fiel Name       : Lab3.html
+// Encoding        : UTF-8
+// Due Date   : February 13
+//
+// Copyright © 2018 Kenta Kodashima. All rights reserved.
+//
+// This source code or any portion thereof must not be
+// reproduced or used in any manner whatsoever.
+// ======================================================================
+// -->
 
 // Question 1:a
 var arr = ['dog', 'cat', 'deer'];
