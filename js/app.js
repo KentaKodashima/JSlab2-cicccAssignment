@@ -1,7 +1,7 @@
 // <!--
 // ======================================================================
 // Project Name    : Lab3 - JS
-// Fiel Name       : Lab3.html
+// Fiel Name       : app.js
 // Encoding        : UTF-8
 // Due Date   : February 13
 //
