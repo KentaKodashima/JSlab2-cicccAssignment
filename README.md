@@ -16,7 +16,7 @@ reproduced or used in any manner whatsoever.
 I could implement all the requirements for Question 3 and the others.
 
 Specification
-- Use Restart button to start and restart the game. (I intentionally connect "Start Time" with Restart button because there are other questions to check. It's nonsense if the game starts before you scroll down to Question 3.)
+- Use Restart button to start and restart the game. (I intentionally connect "Start Time" with Restart button because there are other questions to check. It's nonsense if the game starts before you scroll down to Question 3.)
 - Tracking how many times a user moves the panel.
 - You can check whether the "End Time" is working or not by simply moving the green panel before starting the game.
 - The panel turns to green if the panel can move in that direction. If not, the panel turns to red.
