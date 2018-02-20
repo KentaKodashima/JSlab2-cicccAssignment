@@ -1,9 +1,9 @@
 // <!--
 // ======================================================================
-// Project Name    : Lab3 - JS
+// Project Name    : Lab2 - JS
 // Fiel Name       : app.js
 // Encoding        : UTF-8
-// Due Date   : February 13
+// Due Date   : February 23
 //
 // Copyright © 2018 Kenta Kodashima. All rights reserved.
 //
@@ -12,350 +12,278 @@
 // ======================================================================
 // -->
 
-// Question 1:a
-var arr = ['dog', 'cat', 'deer'];
-var result = arr[0]+arr[2];
-
-document.write("<h1>Question 1. a</h1>")
-document.write(result)
-
-// Question 1:b
-var girls = ["Cecilie", "Lone"];
-var boys = ["Emil", "Tobias", "Linus"];
-var children = girls.concat(boys);
-
-document.write("<h1>Question 1. b</h1>")
-document.write(children)
-
-// Question 1:c
-var arr = [ 20, 30 ];
-for (var i = arr.length; i < 5; i += 1) {
-	arr[i] = Math.pow(i,2);
+// Question 1
+function rotateLeft3(arr) {
+	var firstNumber = arr.splice(0, 1);
+	return arr.concat(firstNumber);
 }
 
-document.write("<h1>Question 1. c</h1>")
-document.write(arr)
-
-// Question 1:d
-var arr = [ 10, 20, 30, 40, 50, 60, 70, 90];
-var sum = 0;
-for (var i = 1; i < 7; i += 1) {
-	sum = sum + arr[i];
-}
-
-var sum2 = 0;
-for (var i = 0; i < arr.length; i += 1) {
-	sum2 = sum2 + arr[i];
-}
-
-document.write("<h1>Question 1. d</h1>")
-document.write("Sum's value right after the loop is: " + sum + "<br/>")
-document.write("Sum's value after the adjustment is: " + sum2)
-
-// Question 1:e
-var DL = 5;
-var d = [25.0, 9.0, 10.0, 25.0, 15.0];
-var mi = 0;
-var m = d[mi];
-for (var i = 1; i < DL; i++) {
-	if (d[i] < m) {
-		mi = i;
-		m = d[mi];
-		console.log(m);
-	}
-}
-console.log("mi = ",mi, "m = " ,m);
-
-document.write("<h1>Question 1. e</h1>")
-document.write("mi = ",mi, "<br />m = " ,m)
+var test1 = [1,2,3];
+var test2 = [5,11,9];
+document.write("<h1>Question 1</h1>");
+document.write(rotateLeft3(test1));
+document.write("<br />");
+document.write(rotateLeft3(test2));
 
 // Question 2
-function sumArray(arr) {
-	var sum = 0;
-	for (var i = 0; i < arr.length; i += 1) {
-		sum = sum + arr[i];
-	}
-	return sum
+function reverse3(arr) {
+	return arr.reverse();
 }
-// variable for testing purpose
-var columnF = [15, 20, 25, 30, 35];
-document.write("<h1>Question 2.</h1>")
-document.write(sumArray(columnF))
 
-// Question3
-// Definition for canvases
-var panels = [];
-window.onload = function() {
-		var arr = ['', '1', '2', '3', '4', '5', '6', '7', '8'];
+var test3 = [1,2,3];
+var test4 = [5,11,9];
+document.write("<h1>Question 2</h1>");
+document.write(reverse3(test3));
+document.write("<br />");
+document.write(reverse3(test4));
 
-    var board = document.getElementById('board');
+// Question 3
+function has23(arr) {
+	if (arr.includes(2) || arr.includes(3)) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-    // Make <div> and push into the board
-    for (i = 0; i < 9; i++){
-      var div = document.createElement('div');
-      div.className = 'panel';
-      div.index = i;
-      div.textContent = arr[i];
-      div.onclick = movePanels;
-			//div.onmouseover = changeColor;
-			//div.onmouseover = changeColor0;
-			div.onmouseout = changeBackColor;
-      board.appendChild(div);
-			if (div.textContent == '') {
-				div.style.backgroundColor = '#4fa871';
-			} else {
-				div.style.backgroundColor = '#996f1e';
-			}
-      panels.push(div);
+var test5 = [2,5];
+var test6 = [4,3];
+var test7 = [4,5];
+document.write("<h1>Question 3</h1>");
+document.write(has23(test5));
+document.write("<br />");
+document.write(has23(test6));
+document.write("<br />");
+document.write(has23(test7));
+
+//Question 4
+function fix23(arr) {
+	if (arr[0] == 2 && arr[1] == 3) {
+		arr[1] = 0;
+		return arr;
+	} else if (arr[1] == 2 && arr[2] == 3) {
+		arr[2] = 0;
+		return arr;
+	} else if (arr.length > 3) {
+		return "The array must be the length of 3.";
+	} else {
+		return arr;
+	}
+}
+
+var test8 = [1,2,3];
+var test9 = [2,3,5];
+var test10 = [1,2,1];
+document.write("<h1>Question 4</h1>");
+document.write(fix23(test8));
+document.write("<br />");
+document.write(fix23(test9));
+document.write("<br />");
+document.write(fix23(test10));
+
+// Function 5
+function maxTriple(arr) {
+	var sortedArr = arr.sort();
+	if (arr.length % 2 == 0) {
+		return "The length of the array must be an odd length.";
+	}
+	return sortedArr[arr.length-1];
+}
+
+var test11 = [1,2,3];
+var test12 = [1,5,3];
+var test13 = [5,2,3];
+document.write("<h1>Question 5</h1>");
+document.write(maxTriple(test11));
+document.write("<br />");
+document.write(maxTriple(test12));
+document.write("<br />");
+document.write(maxTriple(test13));
+
+// Question 6
+function swapEnds(arr) {
+	var temp = 0;
+	temp = arr[0];
+	arr[0] = arr[arr.length-1];
+	arr[arr.length-1] = temp;
+	return arr;
+}
+
+var test14 = [1,2,3,4];
+var test15 = [1,2,3];
+var test16 = [8,6,7,9,5];
+document.write("<h1>Question 6</h1>");
+document.write(swapEnds(test14));
+document.write("<br />");
+document.write(swapEnds(test15));
+document.write("<br />");
+document.write(swapEnds(test16));
+
+// Question 7
+function unlucky(arr) {
+	if (arr[0] == 1 && arr[1] == 3) {
+		return true;
+	} else if (arr[1] == 1 && arr[2] == 3) {
+		return true;
+	} else if (arr[arr.length-2] == 1 && arr[arr.length-1] == 3) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+var test17 = [1,3,4,5];
+var test18 = [2,1,3,4,5];
+var test19 = [1,1,1];
+document.write("<h1>Question 7</h1>");
+document.write(unlucky(test17));
+document.write("<br />");
+document.write(unlucky(test18));
+document.write("<br />");
+document.write(unlucky(test19));
+
+// Question 8
+function front11(a, b) {
+	var firstOfA = a.splice(0, 1);
+	var firstOfB = b.splice(0, 1);
+	return firstOfA.concat(firstOfB);
+}
+
+document.write("<h1>Question 8</h1>");
+document.write("[1,2,3] and [7,9,8] are: " + front11([1,2,3],[7,9,8]));
+document.write("<br />");
+document.write("[1] and [2] are " + front11([1],[2]));
+document.write("<br />");
+document.write("[1,7] and [] are " + front11([1,7],[]));
+
+//Question 9
+function isEverywhare(arr, num) {
+	for (i = 0; i < arr.length - 1; i++) {
+		if (arr[i] != num && arr[i+1] != num) {
+			return false;
 		}
-		// Adding different functions to change colors onmouseover
-		panels[0].onmouseover = changeColor0;
-		panels[1].onmouseover = changeColor1;
-		panels[2].onmouseover = changeColor2;
-		panels[3].onmouseover = changeColor3;
-		panels[4].onmouseover = changeColor4;
-		panels[5].onmouseover = changeColor5;
-		panels[6].onmouseover = changeColor6;
-		panels[7].onmouseover = changeColor7;
-		panels[8].onmouseover = changeColor8;
-}
-
-// Function called on clicks
-function swapArray(i, e) {
-	// i = i
-	// e = i (+ | -) (3 | 1)
-	var temp = panels[i].textContent;
-	//console.log(temp); // = 0
-	panels[i].textContent = panels[e].textContent;
-	//console.log(temp); // = 1
-	panels[e].textContent = temp;
-	//console.log(temp); // = 1
-
-	var div = document.getElementsByClassName('panel');
-	if (div[i].textContent == '') {
-		div[i].style.backgroundColor = '#4fa871';
-		counter();
-		endTimer();
 	}
-	if (div[e].textContent != '') {
-		div[e].style.backgroundColor = '#996f1e';
-	}
+	return true;
 }
 
-// Condition to move a panel
-function movePanels(e) {
-  var i = e.target.index;
+document.write("<h1>Question 9</h1>");
+document.write("[1,2,1,3], 1 is: " + isEverywhare([1, 2, 1, 3], 1));
+document.write("<br />");
+document.write("[1,2,1,3], 2 is: " + isEverywhare([1, 2, 1, 3], 2));
+document.write("<br />");
+document.write("[1,2,1,3,4], 1 is: " + isEverywhare([1, 2, 1, 3, 4], 1));
 
-  if (i <= 5 && panels[i + 3].textContent == '' ){
-    // swap with down panel
-    swapArray(i, i + 3);
-  } else if ( i >= 3 && panels[i - 3].textContent == ''){
-    // swap with the panel above
-    swapArray(i, i - 3);
-  } else if (i % 3 !== 2 && panels[i + 1].textContent == ''){
-    // swap with right panel
-    swapArray(i, i + 1);
-  } else if (i % 3 !== 0 && panels[i - 1].textContent == ''){
-    // swap with left panel
-    swapArray(i, i - 1);
-  }
-}
-
-// Moves counter
-var moves = 1;
-function counter() {
-	var counter = document.getElementById('counter');
-	counter.innerHTML = "Moves: " + moves++;
-}
-
-// Shuffle the array
-function shuffleArray(arr) {
-
-	var n = arr.length;
-	var temp;
-	var i;
-	var findEmpty = false;
-	var findNotEmpty = false;
-
-	while (n) {
-		i = Math.floor(Math.random() * n--);
-		temp = arr[n].textContent;
-		arr[n].textContent = arr[i].textContent;
-		arr[i].textContent = temp;
-	}
-
-	// Change the background color depends on the text inside
-	for (var item in arr) {
-		if(arr[item].textContent == '') {
-			arr[item].style.backgroundColor = '#4fa871';
-		}
-		if(arr[item].textContent != '') {
-			arr[item].style.backgroundColor = '#996f1e';
+// Question 10
+function tenRun(arr) {
+	var temp = -1;
+	for (i = 0; i < arr.length; i++) {
+		if (arr[i] % 10 == 0) {
+			temp = arr[i];
+		} else if (temp != -1) {
+			arr[i] = temp;
 		}
 	}
 	return arr;
 }
 
-// Time counters
-var startTime, endTime;
-function startTimer() {
-	var startDate = new Date();
-	var startHours = startDate.getHours();
-	var startMinutes = startDate.getMinutes();
-	var startSeconds = startDate.getSeconds();
-	var startTimer = document.getElementById('startTimer');
-	startTimer.innerHTML = "Start time: " + startHours + ":" + startMinutes + ":" + startSeconds;
-}
+document.write("<h1>Question 10</h1>");
+document.write("[2, 10, 3, 4, 20, 5]: " + tenRun([2, 10, 3, 4, 20, 5]));
+document.write("<br />");
+document.write("[10, 1, 9, 20]: " + tenRun([10, 1, 9, 20]));
 
-function endTimer() {
-	var endDate = new Date();
-	var endHours = endDate.getHours();
-	var endMinutes = endDate.getMinutes();
-	var endSeconds = endDate.getSeconds();
-	var endTimer = document.getElementById('endTimer');
-	if (panels[0].textContent == '' &&
-			panels[1].textContent == '1' &&
-			panels[2].textContent == '2' &&
-			panels[3].textContent == '3' &&
-			panels[4].textContent == '4' &&
-			panels[5].textContent == '5' &&
-			panels[6].textContent == '6' &&
-			panels[7].textContent == '7' &&
-			panels[8].textContent == '8') {
-				endTimer.innerHTML = "End time: " + endHours + ":" + endMinutes + ":" + endSeconds;
-	}
-}
 
-//Reset Button
-function reset() {
-	// reset counter
-	var counterContent = document.getElementById('counter');
-	counterContent.innerHTML = "Counting your moves...";
-	moves = 1;
-
-	// start timer again
-	startTimer();
-
-	// random Shuffle
-	shuffleArray(panels);
-
-	// reset endTimer
-	var endTimer = document.getElementById('endTimer');
-	endTimer.innerHTML = "";
-}
-
-// Changing colors depends on array index's condition
-function changeColor0() {
-	if (panels[0].textContent == '') {
-		return
-	} else if (panels[1].textContent == '' || panels[3].textContent == '') {
-		panels[0].style.backgroundColor = '#48DD00';
-	} else {
-		panels[0].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor1() {
-	if (panels[1].textContent == '') {
-		return
-	} else if (panels[0].textContent == '' ||
-						 panels[2].textContent == '' ||
-						 panels[4].textContent == '') {
-		panels[1].style.backgroundColor = '#48DD00';
-	} else {
-		panels[1].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor2() {
-	if (panels[2].textContent == '') {
-		return
-	} else if (panels[1].textContent == '' ||
-						 panels[5].textContent == '') {
-		panels[2].style.backgroundColor = '#48DD00';
-	} else {
-		panels[2].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor3() {
-	if (panels[3].textContent == '') {
-		return
-	} else if (panels[0].textContent == '' ||
-						 panels[4].textContent == '' ||
-						 panels[6].textContent == '') {
-		panels[3].style.backgroundColor = '#48DD00';
-	} else {
-		panels[3].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor4() {
-	if (panels[4].textContent == '') {
-		return
-	} else if (panels[1].textContent == '' ||
-						 panels[3].textContent == '' ||
-						 panels[5].textContent == '' ||
-						 panels[7].textContent == '') {
-		panels[4].style.backgroundColor = '#48DD00';
-	} else {
-		panels[4].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor5() {
-	if (panels[5].textContent == '') {
-		return
-	} else if (panels[2].textContent == '' ||
-						 panels[4].textContent == '' ||
-						 panels[8].textContent == '') {
-		panels[5].style.backgroundColor = '#48DD00';
-	} else {
-		panels[5].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor6() {
-	if (panels[6].textContent == '') {
-		return
-	} else if (panels[3].textContent == '' ||
-						 panels[7].textContent == '') {
-	  panels[6].style.backgroundColor = '#48DD00';
-	} else {
-		panels[6].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor7() {
-	if (panels[7].textContent == '') {
-		return
-	} else if (panels[4].textContent == '' ||
-						 panels[6].textContent == '' ||
-						 panels[8].textContent == '') {
-		panels[7].style.backgroundColor = '#48DD00';
-	} else {
-		panels[7].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeColor8() {
-	if (panels[8].textContent == '') {
-		return
-	} else if (panels[5].textContent == '' ||
-						 panels[7].textContent == '') {
-		panels[8].style.backgroundColor = '#48DD00';
-	} else {
-		panels[8].style.backgroundColor = '#FF0000';
-	}
-}
-
-function changeBackColor() {
-	for (var item in panels) {
-		if(panels[item].textContent == '') {
-			panels[item].style.backgroundColor = '#4fa871';
-		}
-		if(panels[item].textContent != '') {
-			panels[item].style.backgroundColor = '#996f1e';
+// Question 11
+function twoTwo(arr) {
+	for (i = 0; i < arr.length; i++) {
+		if (arr[i] == 2 && arr[i+1] != 2 && arr[i-1] != 2) {
+			return false;
 		}
 	}
+	return true;
 }
+document.write("<h1>Question 11</h1>");
+document.write("[4, 2, 2, 3]: " + twoTwo([4, 2, 2, 3]));
+document.write("<br />");
+document.write("[2, 2, 4, 2]: " + twoTwo([2, 2, 4, 2]));
+
+// Question 12
+function shiftLeft(arr) {
+	var firstNum = arr.splice(0, 1);
+	arr.push(firstNum);
+	return arr;
+}
+
+document.write("<h1>Question 12</h1>");
+document.write("[6, 2, 5, 3]: " + shiftLeft([6, 2, 5, 3]));
+document.write("<br />");
+document.write("[1]: " + shiftLeft([1]));
+
+//Question 13
+function evenOdd(arr) {
+	var evenArr = [];
+	var oddArr = [];
+	var newArr = [];
+	for (i = 0; i < arr.length; i++) {
+		if (arr[i] % 2 == 0) {
+		  evenArr.push(arr[i]);
+		} else if (arr[i] % 2 != 0) {
+			oddArr.push(arr[i]);
+		}
+	}
+	evenArr.push(oddArr);
+	newArr.push(evenArr);
+	return newArr;
+}
+
+document.write("<h1>Question 13</h1>");
+document.write("[1, 0, 1, 0, 0, 1, 1]: " + evenOdd([1, 0, 1, 0, 0, 1, 1]));
+document.write("<br />");
+document.write("[3, 3, 2]: " + evenOdd([3, 3, 2]));
+document.write("<br />");
+document.write("[2, 2, 2]: " + evenOdd([2, 2, 2]));
+
+//Question 14
+function fizzBuzz(num1, num2) {
+	var arr = [];
+	for (var i = num1; i < num2; i++) {
+		if (i % 15 == 0) {
+			arr.push("FizzBuzz");
+		} else if (i % 5 == 0) {
+			arr.push("Buzz");
+		} else if (i % 3 == 0) {
+			arr.push("Fizz");
+		} else {
+			arr.push("" + i);
+		}
+	}
+	return arr;
+}
+
+document.write("<h1>Question 14</h1>");
+document.write("[1, 6]: " + fizzBuzz(1, 6));
+document.write("<br />");
+document.write("[1, 11]: " + fizzBuzz(1, 11));
+document.write("<br />");
+document.write("[1, 20]: " + fizzBuzz(1, 20));
+
+// Question 15
+function countClumps(arr) {
+	var counter = 0;
+	var isClump = false;
+	for (i = 0; i < arr.length - 1; i++) {
+		if (arr[i] != arr[i+1]) {
+			isClump = false;
+		} else if (arr[i] == arr[i+1] && arr[i] != arr[i+2]) {
+			isClump = true;
+			counter++;
+		}
+	}
+	return counter;
+}
+
+document.write("<h1>Question 15</h1>");
+document.write("[1, 2, 2, 3, 4, 4]: " + countClumps([1, 2, 2, 3, 4, 4]));
+document.write("<br />");
+document.write("[1, 1, 2, 1, 1]: " + countClumps([1, 1, 2, 1, 1]));
+document.write("<br />");
+document.write("[1, 1, 1, 1, 1]: " + countClumps([1, 1, 1, 1, 1]));
